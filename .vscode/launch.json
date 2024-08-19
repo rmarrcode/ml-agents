@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Custom Execution",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "/home/rmarr/Documents/GflowsForSimulation_env/GflowsForSimulation_venv_real/bin/mlagents-learn",
+        "args": [
+          "config/sacagentsingle.yaml",
+          "--env=VisibilityGameLinuxBuild/visibility_game_linux_build2022.x86_64",
+          "--force",
+          "--no-graphics"
+        ],
+        "console": "integratedTerminal",
+        "cwd": "/home/rmarr/Documents/Visibility_Env",
+        "justMyCode": false
+      }
+    ]
+  }
+  
