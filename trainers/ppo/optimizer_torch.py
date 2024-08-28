@@ -13,6 +13,7 @@ from mlagents.trainers.torch.action_log_probs import ActionLogProbs
 from mlagents.trainers.torch.utils import ModelUtils
 from mlagents.trainers.trajectory import ObsUtil
 
+import wandb
 
 class TorchPPOOptimizer(TorchOptimizer):
     def __init__(self, policy: TorchPolicy, trainer_settings: TrainerSettings):
@@ -169,7 +170,13 @@ class TorchPPOOptimizer(TorchOptimizer):
             "Policy/Epsilon": decay_eps,
             "Policy/Beta": decay_bet,
         }
-
+        wandb.log({
+            'Losses/Policy Loss': update_stats['Losses/Policy Loss'],
+            'Losses/Value Loss': update_stats['Losses/Value Loss'],
+            'Policy/Learning Rate': update_stats['Policy/Learning Rate'],
+            'Policy/Epsilon': update_stats['Policy/Epsilon'],
+            'Policy/Beta': update_stats['Policy/Beta'],
+        })
         for reward_provider in self.reward_signals.values():
             update_stats.update(reward_provider.update(batch))
 

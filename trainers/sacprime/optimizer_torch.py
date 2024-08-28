@@ -469,6 +469,7 @@ class TorchSACPRIMEOptimizer(TorchOptimizer):
             indexed by name. If none, don't update the reward signals.
         :return: Output from update process.
         """
+        #TODO change rewards at env level
         rewards = {}
         for name in self.reward_signals:
             rewards[name] = ModelUtils.list_to_tensor(
@@ -616,7 +617,7 @@ class TorchSACPRIMEOptimizer(TorchOptimizer):
             "Losses/Q2 Loss": q2_loss.item(),
             "Policy/Discrete Entropy Coeff": torch.mean(
                 torch.exp(self._log_ent_coef.discrete)
-            ).item(),
+            ).item(), 
             "Policy/Continuous Entropy Coeff": torch.mean(
                 torch.exp(self._log_ent_coef.continuous)
             ).item(),
