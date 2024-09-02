@@ -7,10 +7,11 @@
         "request": "launch",
         "program": "/home/rmarr/Documents/GflowsForSimulation_env/GflowsForSimulation_venv_real/bin/mlagents-learn",
         "args": [
-          "config/sacagentsingle.yaml",
-          "--env=VisibilityGameLinuxBuild/visibility_game_linux_build2022.x86_64",
+          "config/ppoagent.yaml",
+          "--env=visibility-game-simple-build/visibility-game-simple.x86_64",
           "--force",
-          "--no-graphics"
+          "--no-graphics",
+          "--base-port 5000"
         ],
         "console": "integratedTerminal",
         "cwd": "/home/rmarr/Documents/Visibility_Env",
